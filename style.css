@@ -1,10 +1,22 @@
 *{
     padding: 0;
     margin: 0;
-    font-family: futura,sans-serif;
+    font-family: futura, arial, sans-serif;
     box-sizing: border-box;
 
 }
+@font-face {
+    font-family: 'Futura';  /* Name of the font */
+    src: url('futura/futur.ttf') format('truetype');  /* Path to the TTF file */
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Apply the font globally */
+body {
+    font-family: 'Futura', Arial, sans-serif;
+}
+
 html, body {
     overflow-x: hidden;
 }
