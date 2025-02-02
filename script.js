@@ -44,24 +44,66 @@ getInTouch.addEventListener("click", ()=>{
 let scrollContainer = document.querySelector(".gallery");
 let backBtn = document.getElementById("backbtn");
 let nextBtn = document.getElementById("nextbtn");
+let images = document.querySelectorAll(".galleryone img");  // Select all images
 
+// Limit scrolling to avoid scrolling past the images
+const maxScroll = scrollContainer?.scrollWidth - scrollContainer?.clientWidth;
 
-
-scrollContainer?.addEventListener("wheel", (evt) =>{
+scrollContainer?.addEventListener("wheel", (evt) => {
     evt.preventDefault();
+    // Handle scrolling with mouse wheel
     scrollContainer.scrollLeft += evt.deltaY;
     scrollContainer.style.scrollBehavior = "auto";
 });
 
-nextBtn?.addEventListener("click", () =>{
+nextBtn?.addEventListener("click", () => {
     scrollContainer.style.scrollBehavior = "smooth";
-    scrollContainer.scrollLeft +=900;
+    // Scroll right with relative distance, and prevent going beyond the max scroll
+    scrollContainer.scrollLeft = Math.min(scrollContainer.scrollLeft + scrollContainer.clientWidth, maxScroll);
 });
 
-backBtn?.addEventListener("click", () =>{
+backBtn?.addEventListener("click", () => {
     scrollContainer.style.scrollBehavior = "smooth";
-    scrollContainer.scrollLeft -=900;
+    // Scroll left with relative distance, and prevent going below 0
+    scrollContainer.scrollLeft = Math.max(scrollContainer.scrollLeft - scrollContainer.clientWidth, 0);
 });
+
+// Full-Screen functionality
+images.forEach((image) => {
+    image.addEventListener("click", () => {
+        openFullscreen(image); // Open clicked image in full-screen
+    });
+});
+
+// Function to enter full-screen mode
+function openFullscreen(img) {
+    if (img.requestFullscreen) {
+        img.requestFullscreen(); // For most browsers
+    } else if (img.mozRequestFullScreen) { // Firefox
+        img.mozRequestFullScreen();
+    } else if (img.webkitRequestFullscreen) { // Chrome, Safari and Opera
+        img.webkitRequestFullscreen();
+    } else if (img.msRequestFullscreen) { // IE/Edge
+        img.msRequestFullscreen();
+    }
+}
+
+// Exit full-screen when pressing Escape key
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) { // Firefox
+            document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) { // Chrome, Safari, Opera
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) { // IE/Edge
+            document.msExitFullscreen();
+        }
+    }
+});
+
+
 
 [chat, chatTsap,footTsap, galTsap, projTsap,hireTsap, getInTsap].forEach(something=>{
     something?.addEventListener("click",() =>{
@@ -165,13 +207,55 @@ let aluedu = document.getElementById("itemthreeOne");
         window.open("https://www.alueducation.com/", "_blank");
     });
 
- var typed = new Typed(".auto-type",{
-        strings: ["Digitalize your idea!","Create your online presence", "Increase your customer","Do all together"],
-        typeSpeed: 150,
-        backSpeed: 150,
-        loop: true
-    })
+    let typedElement = document.querySelector(".auto-type");
 
+    typedElement?.classList.add("active"); // Example usage of ?. (optional chaining)
+    
+    if (typedElement) {
+        var typed = new Typed(".auto-type", {
+            strings: [
+                "Digitalize your idea!",
+                "Create your online presence",
+                "Increase your customer",
+                "Do all together"
+            ],
+            typeSpeed: 150,
+            backSpeed: 150,
+            loop: true
+        });
+    }
+
+
+    document.addEventListener("DOMContentLoaded", () => {
+        let items = document.querySelectorAll(".item");
+    
+        // Restore previously active tab
+        let savedActive = localStorage.getItem("activeTab");
+        if (savedActive) {
+            document.querySelector(`a[href='${savedActive}']`)?.classList.add("active");
+        }
+    
+        items.forEach(item => {
+            item.addEventListener("click", function () {
+                // Remove active class from all items
+                items.forEach(i => i.classList.remove("active"));
+    
+                // Add active class to clicked item
+                this.classList.add("active");
+    
+                // Save the href attribute (link) to localStorage
+                localStorage.setItem("activeTab", this.getAttribute("href"));
+            });
+        });
+    });
+    
+    
+
+
+
+
+      
+    
 
 
 
