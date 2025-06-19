@@ -1,3 +1,6 @@
+// this the main javscript to add interactions 
+
+// this is where I declare all the varialbes 
 let hamburger = document.getElementById("hamburger");
 let navlist = document.getElementById("navlist");
 let secondlist = document.getElementById("secondlist");
@@ -32,6 +35,7 @@ let hireFace = document.getElementById("hireFace");
 let projFace = document.getElementById("projFace");
 let footFace = document.getElementById("footFace");
 
+// this function active the navigation on small screens
 
 hamburger.onclick = function (){
     hamburger.classList.toggle("active")
@@ -46,44 +50,44 @@ let backBtn = document.getElementById("backbtn");
 let nextBtn = document.getElementById("nextbtn");
 let images = document.querySelectorAll(".galleryone img");  // Select all images
 
-// Limit scrolling to avoid scrolling past the images
+// this Limit scrolling to avoid scrolling past the images on my gallery page
 const maxScroll = scrollContainer?.scrollWidth - scrollContainer?.clientWidth;
 
 scrollContainer?.addEventListener("wheel", (evt) => {
     evt.preventDefault();
-    // Handle scrolling with mouse wheel
+    // this Handle scrolling with mouse wheel so that even when you scroll up is moving pictures horizontally as  wheel 
     scrollContainer.scrollLeft += evt.deltaY;
     scrollContainer.style.scrollBehavior = "auto";
 });
 
 nextBtn?.addEventListener("click", () => {
     scrollContainer.style.scrollBehavior = "smooth";
-    // Scroll right with relative distance, and prevent going beyond the max scroll
+    // this help us enable Scroll right with relative distance, and prevent going beyond the max scroll
     scrollContainer.scrollLeft = Math.min(scrollContainer.scrollLeft + scrollContainer.clientWidth, maxScroll);
 });
 
 backBtn?.addEventListener("click", () => {
     scrollContainer.style.scrollBehavior = "smooth";
-    // Scroll left with relative distance, and prevent going below 0
+    // this is to help us Scroll left with relative distance, and prevent going below 0
     scrollContainer.scrollLeft = Math.max(scrollContainer.scrollLeft - scrollContainer.clientWidth, 0);
 });
 
-// Full-Screen functionality
+// This is for Full-Screen functionality when we click the image in gallery
 images.forEach((image) => {
     image.addEventListener("click", () => {
-        openFullscreen(image); // Open clicked image in full-screen
+        openFullscreen(image); 
     });
 });
 
-// Function to enter full-screen mode
+// this open a condition that enable Function to enter full-screen mode on different browsers
 function openFullscreen(img) {
     if (img.requestFullscreen) {
-        img.requestFullscreen(); // For most browsers
-    } else if (img.mozRequestFullScreen) { // Firefox
+        img.requestFullscreen(); 
+    } else if (img.mozRequestFullScreen) { 
         img.mozRequestFullScreen();
-    } else if (img.webkitRequestFullscreen) { // Chrome, Safari and Opera
+    } else if (img.webkitRequestFullscreen) { 
         img.webkitRequestFullscreen();
-    } else if (img.msRequestFullscreen) { // IE/Edge
+    } else if (img.msRequestFullscreen) { // 
         img.msRequestFullscreen();
     }
 }
@@ -103,7 +107,8 @@ document.addEventListener("keydown", (event) => {
     }
 });
 
-
+// because this javascript page is connected to different pages I want the form to work for all pages 
+// that';s why we are usig the loop so that we don't miss any id or class for the  form
 
 [chat, chatTsap,footTsap, galTsap, projTsap,hireTsap, getInTsap].forEach(something=>{
     something?.addEventListener("click",() =>{
@@ -209,7 +214,7 @@ let aluedu = document.getElementById("itemthreeOne");
 
     let typedElement = document.querySelector(".auto-type");
 
-    typedElement?.classList.add("active"); // Example usage of ?. (optional chaining)
+    typedElement?.classList.add("active"); 
     
     if (typedElement) {
         var typed = new Typed(".auto-type", {
@@ -248,6 +253,7 @@ let aluedu = document.getElementById("itemthreeOne");
             });
         });
     });
+    // end 
     
     
 

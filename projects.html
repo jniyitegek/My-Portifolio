@@ -7,13 +7,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- the navigation bar with links to other tabs -->
     <div class="navbar">
         <ul class="navlist" id="navlist">
             <li><a href="index.html" class="item">HOME</a></li>
             <li><a href="projects.html" class="item">PROJECTS</a></li>
-            <li><a href="Hireme.html" class="item">HIRE ME</a></li>
+            <li><a href="Hireme.html" class="item">SKILLS</a></li>
         </ul>
-        <img src="MY LOGO.png" class="logo">
+        <img src="./Images/MY LOGO.png" class="logo">
         <ul class="navlist" id="secondlist">
             <li><a href="Gallery.html" class="item">GALLERY</a></li>
             <li><a href="index.html#education" class="item">EDUCATION</a></li>
@@ -26,25 +27,29 @@
         <button class="btn" id="btn">GET IN TOUCH</button>
         
     </div>
+    <!-- another diagonal split area for project title -->
     <div class="diagonalsplit2" id="comming-soon">
-        <img src="projects.png" alt="" class="missionimg">
-        <p class="mission" id="mission_comming">COMMING <span>SOON!....</span></p>
+        <img id="projectimage" src="./Images/projects.png" alt="" class="missionimg">
+        <p class="mission" id="mission_comming">MY <span>PROJECTS!....</span></p>
     </div>
 
+    <!-- the main sections for projects -->
+     <div id="projectSection">
+        <p>Hello </p>
+        <!-- the codes here fetched from the array mapping in the project.js file that's why it appear empty -->
 
-
-
-
+     </div>
+<!-- footer finally is here -->
     <div class="foot">
         <div class="foot1">
-            <img src="Frame 1 (1).png" alt="" class="footlogo">
+            <img src="./Images/Frame 1 (1).png" alt="" class="footlogo">
             <h3 class="footh3">Reach me out on →</h3>
             <div class="socials">
-                <img src="linkedinicon.png" alt="" class="footimg" id="projLn">
-                <img src="instagramicon.png" alt="" class="footimg" id="projInst">
-                <img src="xicon.png" alt="" class="footimg" id="projTwit">
-                <img src="facebookicon.png" alt="" class="footimg" id="projFace">
-                <img src="whatsapp-icon-2040x2048-8b5th74o.png" alt="" class="footimg" id="projTsap">
+                <img src="./Images/linkedinicon.png" alt="" class="footimg" id="projLn">
+                <img src="./Images/instagramicon.png" alt="" class="footimg" id="projInst">
+                <img src="./Images/xicon.png" alt="" class="footimg" id="projTwit">
+                <img src="./Images/facebookicon.png" alt="" class="footimg" id="projFace">
+                <img src="./Images/whatsapp-icon-2040x2048-8b5th74o.png" alt="" class="footimg" id="projTsap">
             </div>
         </div>
         <div class="foot2">
@@ -59,6 +64,7 @@
             <h3 class="foot2h3"> <a href="getintouch.html#backend">I want a Websites</a></h3>
             <h3 class="foot2h3"> <a href="Index.html#diagonalsplit">About!</a></h3>
         </div>
+        <!-- the last contact form at the footer -->
         <div class="footcard">
             <h1>Want a website?</h1>
             <form action="" class="form" id="formThree">
@@ -75,6 +81,7 @@
     <div class="lastfoot">
         <p> &copy;2025 Jean Philippe Niyitegeka. All rights reserved</p>
     </div>
+    <script src="projects.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
